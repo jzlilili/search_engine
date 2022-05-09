@@ -251,7 +251,11 @@ There are two steps:
    Ensure that the timer on the bottom of the webpage is included in the screenshot.
    Add the screenshot to your git repo, and modify the `<img>` tag below to point to the screenshot.
 
-   <img src='screenshot.png' />
+   Search Query and Graph
+   <img src='Search.png'/>
+   
+   Search Results and Timing
+   <img src='Timing.png'>
 
 1. Commit and push your changes to github.
 
