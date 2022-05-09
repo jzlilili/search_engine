@@ -213,28 +213,41 @@ There are two steps:
 
 1. Edit this README file to contain the RUM query you created above right here:
     ```
-    CREATE INDEX ...
+    CREATE INDEX ON metahtml USING RUM(content);
     ```
 
-1. Edit this README file with the results of the following queries in psql.
+2. Edit this README file with the results of the following queries in psql.
    The results of these queries will be used to determine if you've completed the previous steps correctly.
 
     1. This query shows the total number of webpages loaded:
        ```
        select count(*) from metahtml;
        ```
+       ```
+        count  
+       --------
+        119843
+       (1 row)
+       ```
 
-    1. This query shows the number of webpages loaded / hour:
+    2. This query shows the number of webpages loaded / hour:
        ```
        select * from metahtml_rollup_insert order by insert_hour desc limit 100;
        ```
+       ```
+        hll_count |  url   | hostpathquery | hostpath | host  |      insert_hour       
+       -----------+--------+---------------+----------+-------+------------------------
+                5 | 122152 |        120413 |   114435 | 94100 | 2022-05-09 20:00:00+00
+       (1 row)
+       ```
 
-    1. This query shows the hostnames that you have downloaded the most webpages from:
+    3. This query shows the hostnames that you have downloaded the most webpages from:
        ```
        select * from metahtml_rollup_host order by hostpath desc limit 100;
        ```
+       Task 2b was removed as a requirement for the assignment.
 
-1. Take a screenshot of an interesting search result.
+3. Take a screenshot of an interesting search result.
    Ensure that the timer on the bottom of the webpage is included in the screenshot.
    Add the screenshot to your git repo, and modify the `<img>` tag below to point to the screenshot.
 
